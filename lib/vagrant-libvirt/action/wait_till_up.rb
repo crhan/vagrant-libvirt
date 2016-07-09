@@ -88,7 +88,7 @@ module VagrantPlugins
         def terminate(env)
           if env[:machine].provider.state.id != :not_created
             # If we're not supposed to destroy on error then just return
-            return if !env[:destroy_on_error]
+            return  # change for Daho: Don't terminate vm when error
 
             destroy_env = env.dup
             destroy_env.delete(:interrupted)
